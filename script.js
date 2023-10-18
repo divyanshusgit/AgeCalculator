@@ -11,7 +11,6 @@ if (today.getDate() < 10) {
 else {
     maxDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate() - 1}`;
 }
-// maxDate = `2023-02-02`;
 inputElem.max = maxDate;
 
 submitBtn.addEventListener('click', submitClickFunc);
@@ -39,7 +38,6 @@ function logic() {
     let yearNum = document.getElementById('yearNum');
     let monthNum = document.getElementById('monthNum');
     let dayNum = document.getElementById('dayNum');
-    let today = new Date(`2024-01-01`);
     let dob = new Date(inputElem.value);
     let currentYear = today.getFullYear();
     let currentMonth = today.getMonth();
