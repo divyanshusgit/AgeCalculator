@@ -112,7 +112,6 @@ body {
         font-size: 30px;
         width: 220px;
         border-top-width: 25px;
-        box-shadow: 5px 5px rgb(200, 200, 200);
     }
     
     #instructions {
@@ -129,7 +128,6 @@ body {
         font-size: 20px;
         width: 150px;
         border-top-width: 18px;
-        box-shadow: 4px 4px rgb(200, 200, 200);
     }
 
     #instructions {
