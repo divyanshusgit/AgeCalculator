@@ -1,7 +1,11 @@
 let form = document.getElementById('form');
+setTimeout(() => {
+    form.style.opacity = '1'
+}, 1000);
 let inputElem = document.getElementById('dob');
 let submitBtn = document.getElementById('submit');
 let output = document.getElementById('output');
+let instructions = document.getElementById('instructions')
 
 let today = new Date();
 let maxDate;
@@ -15,29 +19,45 @@ inputElem.max = maxDate;
 
 submitBtn.addEventListener('click', submitClickFunc);
 function submitClickFunc(elem) {
-    if (inputElem.value == '') {
-        elem.preventDefault();
+    if (new Date(inputElem.value) <= new Date(maxDate)) {
+        if (inputElem.value == '') {
+            elem.preventDefault();
+        }
+        else {
+            elem.target.setAttribute('style', 'box-shadow: none;')
+            elem.target.style.top = '6px';
+            elem.target.style.left = '6px';
+            setTimeout(() => {
+                elem.target.setAttribute('style', 'box-shadow: 4px 4px #rgb(150,150,150);')
+                elem.target.style.top = '0px';
+                elem.target.style.left = '0px';
+            }, 100);
+            setTimeout(() => {
+                form.style.opacity = '0';
+                setTimeout(() => {
+                    form.style.display = 'none';
+                    logic();
+                    output.style.display = 'flex';
+                    setTimeout(() => {
+                        output.style.opacity = '1';
+                    }, 500);
+                }, 1000);
+            }, 200);
+        }
     }
-    else {
-        elem.target.setAttribute('style', 'box-shadow: none;')
-        elem.target.style.top = '6px';
-        elem.target.style.left = '6px';
+    else{
+        instructions.style.opacity = '0'
         setTimeout(() => {
-            elem.target.setAttribute('style', 'box-shadow: 4px 4px #rgb(150,150,150);')
-            elem.target.style.top = '0px';
-            elem.target.style.left = '0px';
-        }, 100);
-        setTimeout(() => {
-            form.style.display = 'none';
-            logic();
-            output.style.display = 'flex';
-        }, 500);
+            instructions.innerHTML = 'Enter a valid DOB'
+            instructions.style.opacity = '1'
+        }, 700);
     }
 }
 function logic() {
     let yearNum = document.getElementById('yearNum');
     let monthNum = document.getElementById('monthNum');
     let dayNum = document.getElementById('dayNum');
+    let today = new Date();
     let dob = new Date(inputElem.value);
     let currentYear = today.getFullYear();
     let currentMonth = today.getMonth();
@@ -48,55 +68,55 @@ function logic() {
     let years;
     let months;
     let days;
-    if(currentMonth>dobMonth){
+    if (currentMonth > dobMonth) {
         years = currentYear - dobYear;
-        if(currentDate>=dobDate){
+        if (currentDate >= dobDate) {
             months = currentMonth - dobMonth;
-            days = currentDate-dobDate;
+            days = currentDate - dobDate;
         }
-        else{
+        else {
             months = currentMonth - dobMonth - 1;
-            days = 30 - (dobDate-currentDate);
+            days = 30 - (dobDate - currentDate);
         }
     }
-    else if (currentMonth<dobMonth){
+    else if (currentMonth < dobMonth) {
         years = currentYear - dobYear - 1;
-        if(currentDate>=dobDate){
-            months = 12 - (dobMonth-currentMonth);
-            days = currentDate-dobDate;
+        if (currentDate >= dobDate) {
+            months = 12 - (dobMonth - currentMonth);
+            days = currentDate - dobDate;
         }
-        else{
-            months = 12 - (dobMonth-currentMonth) - 1;
-            days = 30 - (dobDate-currentDate);
+        else {
+            months = 12 - (dobMonth - currentMonth) - 1;
+            days = 30 - (dobDate - currentDate);
         }
     }
-    else{
-        if(currentDate>=dobDate){
-            years = currentYear-dobYear;
+    else {
+        if (currentDate >= dobDate) {
+            years = currentYear - dobYear;
             months = 0;
-            days = currentDate-dobDate;
+            days = currentDate - dobDate;
         }
-        else{
-            years = currentYear - dobYear -1;
+        else {
+            years = currentYear - dobYear - 1;
             months = 11;
-            days = 30 - (dobDate-currentDate);
+            days = 30 - (dobDate - currentDate);
         }
     }
     console.log(currentMonth);
-    let arr = [0,1,3,5,7,8,10]
-    if(arr.includes(currentMonth)){
-        dayNum.innerHTML = days+1;
+    let arr = [0, 1, 3, 5, 7, 8, 10]
+    if (arr.includes(currentMonth)) {
+        dayNum.innerHTML = days + 1;
     }
-    else{
-        if(currentMonth==2){
-            if(currentYear%4==0){
-                dayNum.innerHTML = days-1;
+    else {
+        if (currentMonth == 2) {
+            if (currentYear % 4 == 0) {
+                dayNum.innerHTML = days - 1;
             }
-            else{
-                dayNum.innerHTML = days-2;
+            else {
+                dayNum.innerHTML = days - 2;
             }
         }
-        else{
+        else {
             dayNum.innerHTML = days;
         }
     }
