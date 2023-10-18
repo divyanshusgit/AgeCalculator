@@ -25,6 +25,8 @@ body {
     justify-content: center;
     align-items: center;
     padding: 15px;
+    opacity: 0;
+    transition: 1s all;
 }
 
 #dob {
@@ -40,6 +42,8 @@ body {
     background-color: rgb(251, 251, 210);
     border-top: 30px solid rgb(255, 0, 0, 0.7);
     outline: 1px solid rgb(130,130,130);
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgb(255, 255, 220) 0%, rgb(252, 251, 188) 100%);
 }
 
 #dob:focus{
@@ -53,7 +57,7 @@ body {
     color: rgb(130,130,130);
     font-variant: small-caps;
     text-align: center;
-
+    transition: 0.5s all;
 }
 
 #submit {
@@ -78,8 +82,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
     display: none;
     flex-wrap: wrap;
+    transition: 1s all;
 }
 
 .output-elems {
@@ -100,6 +106,8 @@ body {
     font-size: 50px;
     outline: 1px solid rgb(130,130,130);
     background-color: rgb(251, 251, 210);
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgb(255, 255, 220) 0%, rgb(252, 251, 188) 100%);
 }
 
 .texts{
