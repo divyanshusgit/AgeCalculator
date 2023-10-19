@@ -4,44 +4,46 @@ setTimeout(() => {
 }, 1000);
 let inputElem = document.getElementById('dob');
 let submitBtn = document.getElementById('submit');
-let output = document.getElementById('output');
-let instructions = document.getElementById('instructions')
+let outputBox = document.getElementById('outputBox');
+let instructions = document.getElementById('instructions');
+let tryAgain = document.getElementById('tryAgain');
+tryAgain.addEventListener('click',reloadFunc);
+function reloadFunc(){
+    outputBox.style.opacity = 0;
+    setTimeout(() => {
+        location.reload();
+    }, 500);
+}
 
 let today = new Date();
-let maxDate;
 if (today.getDate() < 10) {
-    maxDate = `${today.getFullYear()}-${today.getMonth() + 1}-0${today.getDate() - 1}`;
+    inputElem.max = `${today.getFullYear()}-${today.getMonth() + 1}-0${today.getDate()}`;
 }
 else {
-    maxDate = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate() - 1}`;
+    inputElem.max = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
 }
-inputElem.max = maxDate;
 
 submitBtn.addEventListener('click', submitClickFunc);
 function submitClickFunc(elem) {
-    if (new Date(inputElem.value) <= new Date(maxDate)) {
+    elem.target.setAttribute('style', 'outline: 2px solid white;')
+    setTimeout(() => {
+        elem.target.setAttribute('style', 'outline: 2px solid yellow;')
+    }, 100);
+    if (new Date(inputElem.value) <= new Date(inputElem.max)) {
         if (inputElem.value == '') {
             elem.preventDefault();
         }
         else {
-            elem.target.setAttribute('style', 'box-shadow: none;')
-            elem.target.style.top = '6px';
-            elem.target.style.left = '6px';
-            setTimeout(() => {
-                elem.target.setAttribute('style', 'box-shadow: 4px 4px #rgb(150,150,150);')
-                elem.target.style.top = '0px';
-                elem.target.style.left = '0px';
-            }, 100);
             setTimeout(() => {
                 form.style.opacity = '0';
                 setTimeout(() => {
                     form.style.display = 'none';
                     logic();
-                    output.style.display = 'flex';
+                    outputBox.setAttribute('style', 'display:flex; flex-direction: column;')
                     setTimeout(() => {
-                        output.style.opacity = '1';
-                    }, 500);
-                }, 1000);
+                        outputBox.style.opacity = '1';
+                    }, 400);
+                }, 900);
             }, 200);
         }
     }
@@ -102,7 +104,6 @@ function logic() {
             days = 30 - (dobDate - currentDate);
         }
     }
-    console.log(currentMonth);
     let arr = [0, 1, 3, 5, 7, 8, 10]
     if (arr.includes(currentMonth)) {
         dayNum.innerHTML = days + 1;
