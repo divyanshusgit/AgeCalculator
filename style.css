@@ -1,12 +1,11 @@
-body {
+/* body {
     color: white;
     padding: 0px;
     margin: 0px;
-}
+} */
 
 * {
     font-family: sans-serif;
-    font-weight: 700;
 }
 
 #container {
@@ -14,7 +13,6 @@ body {
     width: 95vw;
     height: 80vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -32,58 +30,52 @@ body {
 #dob {
     text-align: center;
     font-size: 40px;
-    font-variant: small-caps;
-    border-radius: 5px;
+    border-radius: 2px;
     padding: 10px;
     width: 290px;
     border: none;
     display: inline-block;
     margin: 10px 0px;
-    background-color: rgb(251, 251, 210);
     border-top: 30px solid rgb(255, 0, 0, 0.7);
-    outline: 1px solid rgb(130,130,130);
-    background: rgb(255,255,255);
     background: linear-gradient(90deg, rgb(255, 255, 220) 0%, rgb(252, 251, 188) 100%);
-}
-
-#dob:focus{
-    outline: 1px solid rgb(130,130,130);
+    outline: 1px solid rgb(255, 255, 0);
+    font-weight: 700;
 }
 
 #instructions {
     margin: 10px 0px;
     padding: 10px;
-    font-size: 30px;
+    font-size: 20px;
     color: rgb(130,130,130);
-    font-variant: small-caps;
     text-align: center;
     transition: 0.5s all;
 }
 
-#submit {
-    background-color: #00ffd5;
-    color: black;
-    font-size: 30px;
-    border-radius: 5px;
+.buttons {
+    font-size: 20px;
+    border-radius: 2px;
     padding: 10px;
-    font-variant: small-caps;
     border: none;
-    box-shadow: 4px 4px #00ffd594;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    transition: 0.1s all;
-    background-color: rgb(240, 240, 240);
-    box-shadow: 4px 4px rgb(200, 200, 200);
-    outline: 1px solid rgb(190, 190, 190);
+    outline: 2px solid yellow;
+    background: linear-gradient(90deg, rgb(255, 255, 220) 0%, rgb(252, 251, 188) 100%);
 }
 
-#output {
+#tryAgain{
+    text-align: center;
+    width: 155px;
+    margin: 10px auto;
+}
+
+#outputBox{
+    display: none;
+    opacity: 0;
+    transition: 1s all;
+}
+
+#outputData {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    display: none;
     flex-wrap: wrap;
     transition: 1s all;
 }
@@ -93,7 +85,7 @@ body {
 }
 
 .innerOnes {
-    border-radius: 2px;
+    border-radius: 1px;
     text-align: center;
     margin: 10px;
     padding: 10px;
@@ -104,10 +96,9 @@ body {
 .nums {
     border-top: 20px solid red;
     font-size: 50px;
-    outline: 1px solid rgb(130,130,130);
-    background-color: rgb(251, 251, 210);
-    background: rgb(255,255,255);
     background: linear-gradient(90deg, rgb(255, 255, 220) 0%, rgb(252, 251, 188) 100%);
+    outline: 1px solid rgb(255, 255, 0);
+    font-weight: 700;
 }
 
 .texts{
@@ -123,11 +114,12 @@ body {
     }
     
     #instructions {
-        font-size: 25px;
+        font-size: 16px;
     }
     
-    #submit {
-        font-size: 25px;
+    .buttons {
+        font-size: 16px;
+        padding: 4px;
     }
 }
 
@@ -137,22 +129,16 @@ body {
         width: 150px;
         border-top-width: 18px;
     }
-
-    #instructions {
-        font-size: 16px;
-    }
-
-    #submit {
-        font-size: 16px;
-    }
 }
 
-@media (max-width:425px) {
+@media (max-width:630px) {
     .nums {
         border-top-width: 18px;
         font-size: 35px;
     }
-
+    #tryAgain{
+        width: 125px;
+    }
     .texts{
         font-size: 16px;
     }
@@ -187,10 +173,4 @@ body {
     #month{
         margin: 5px 7px ;
     }
-}
-
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
 }
