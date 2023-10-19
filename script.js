@@ -25,9 +25,9 @@ else {
 
 submitBtn.addEventListener('click', submitClickFunc);
 function submitClickFunc(elem) {
-    elem.target.setAttribute('style', 'outline: 2px solid white;')
+    elem.target.setAttribute('style', 'outline: 1px solid white;')
     setTimeout(() => {
-        elem.target.setAttribute('style', 'outline: 2px solid yellow;')
+        elem.target.setAttribute('style', 'outline: 1px solid black;')
     }, 100);
     if (new Date(inputElem.value) <= new Date(inputElem.max)) {
         if (inputElem.value == '') {
