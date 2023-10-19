@@ -7,27 +7,30 @@
     <title>Age Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-    
+
 <body>
     <div id="container">
         <div id="form">
             <input type="date" value="2023-10-18" min="1898-01-01" name="DOB" id="dob">
-            <div id="instructions">Please Enter Your DOB</div>
-            <button id="submit">Show My Age</button>
+            <div id="instructions">Enter Your DOB</div>
+            <button class="buttons" id="submit">Get My Age</button>
         </div>
-        <div id="output">
-            <div class="output-elems" id="year">
-                <div class="innerOnes nums" id="yearNum">00</div>
-                <div class="innerOnes texts" id="yearText">Years</div>
+        <div id="outputBox">
+            <div id="outputData">
+                <div class="output-elems" id="year">
+                    <div class="innerOnes nums" id="yearNum">00</div>
+                    <div class="innerOnes texts" id="yearText">Years</div>
+                </div>
+                <div class="output-elems" id="month">
+                    <div class="innerOnes nums" id="monthNum">00</div>
+                    <div class="innerOnes texts" id="monthText">Months</div>
+                </div>
+                <div class="output-elems" id="day">
+                    <div class="innerOnes nums" id="dayNum">00</div>
+                    <div class="innerOnes texts" id="dayText">Days</div>
+                </div>
             </div>
-            <div class="output-elems" id="month">
-                <div class="innerOnes nums" id="monthNum">00</div>
-                <div class="innerOnes texts" id="monthText">Months</div>
-            </div>
-            <div class="output-elems" id="day">
-                <div class="innerOnes nums" id="dayNum">00</div>
-                <div class="innerOnes texts" id="dayText">Days</div>
-            </div>
+            <div id="tryAgain" class="buttons">Try Another Date</div>
         </div>
     </div>
     <script src="script.js"></script>
