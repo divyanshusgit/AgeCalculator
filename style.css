@@ -104,24 +104,10 @@
     color: rgb(130, 130, 130);
 }
 
+input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
-    background-image: url('calendar.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 26px;
-    position: relative;
-    right: 13px;
-    bottom: 2px;
-}
-
-input[type="date"]::-date-picker-indicator {
-    background-image: url('calendar.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 26px;
-    position: relative;
-    right: 13px;
-    bottom: 2px;
+    display: none;
+    -webkit-appearance: none;
 }
 
 @media(max-width:630px) {
@@ -161,10 +147,6 @@ input[type="date"]::-date-picker-indicator {
         width: 55px;
     }
 
-    input[type="date"]::-webkit-calendar-picker-indicator {
-        background-size: 20px;
-        right: 10px;
-    }
 }
 
 @media(max-width:530px) {
@@ -174,11 +156,6 @@ input[type="date"]::-date-picker-indicator {
         border-top-width: 18px;
     }
 
-    input[type="date"]::-webkit-calendar-picker-indicator {
-        background-size: 15px;
-        right: 7px;
-        bottom: 1px;
-    }
 }
 
 @media (max-width:340px) {
@@ -196,7 +173,6 @@ input[type="date"]::-date-picker-indicator {
         padding: 5px;
         width: 50px;
     }
-
 }
 
 @media(max-width:260px) {
