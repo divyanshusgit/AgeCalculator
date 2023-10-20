@@ -40,7 +40,7 @@
     margin: 10px 0px;
     padding: 10px;
     font-size: 20px;
-    color: rgb(130,130,130);
+    color: rgb(130, 130, 130);
     text-align: center;
     transition: 0.5s all;
 }
@@ -54,13 +54,17 @@
     background: linear-gradient(90deg, rgb(255, 255, 220) 0%, rgb(252, 251, 188) 100%);
 }
 
-#tryAgain{
+#tryAgain {
     text-align: center;
     width: 155px;
     margin: 10px auto;
 }
 
-#outputBox{
+.buttons:hover{
+    cursor: pointer;
+}
+
+#outputBox {
     display: none;
     opacity: 0;
     transition: 1s all;
@@ -95,9 +99,29 @@
     font-weight: 700;
 }
 
-.texts{
+.texts {
     text-align: center;
-    color: rgb(130,130,130);
+    color: rgb(130, 130, 130);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-image: url('calendar.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 26px;
+    position: relative;
+    right: 13px;
+    bottom: 2px;
+}
+
+input[type="date"]::-date-picker-indicator {
+    background-image: url('calendar.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 26px;
+    position: relative;
+    right: 13px;
+    bottom: 2px;
 }
 
 @media(max-width:630px) {
@@ -106,14 +130,40 @@
         width: 220px;
         border-top-width: 25px;
     }
-    
+
     #instructions {
-        font-size: 16px;
+        font-size: 20px;
     }
-    
+
     .buttons {
         font-size: 16px;
-        padding: 4px;
+        padding: 4px 8px;
+    }
+
+    .nums {
+        border-top-width: 18px;
+        font-size: 35px;
+    }
+
+    #tryAgain {
+        width: 125px;
+    }
+
+    .texts {
+        font-size: 16px;
+    }
+
+    .output-elems {
+        padding: 0px;
+    }
+
+    .innerOnes {
+        width: 55px;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        background-size: 20px;
+        right: 10px;
     }
 }
 
@@ -123,48 +173,38 @@
         width: 150px;
         border-top-width: 18px;
     }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        background-size: 15px;
+        right: 7px;
+        bottom: 1px;
+    }
 }
 
-@media (max-width:630px) {
+@media (max-width:340px) {
     .nums {
-        border-top-width: 18px;
-        font-size: 35px;
-    }
-    #tryAgain{
-        width: 125px;
-    }
-    .texts{
-        font-size: 16px;
-    }
-
-    .output-elems {
-        padding: 0px;
-    }
-    .innerOnes{
-        width: 55px ;
-    }
-}
-
-@media (max-width:340px){
-    .nums{
         border-top-width: 15px;
         font-size: 30px;
     }
-    .texts{
+
+    .texts {
         font-weight: normal;
         text-align: center;
     }
-    .innerOnes{
+
+    .innerOnes {
         padding: 5px;
         width: 50px;
     }
+
 }
 
-@media(max-width:260px){
-    .innerOnes{
+@media(max-width:260px) {
+    .innerOnes {
         margin: 5px 0px;
     }
-    #month{
-        margin: 5px 7px ;
+
+    #month {
+        margin: 5px 7px;
     }
 }
