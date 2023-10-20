@@ -8,11 +8,17 @@ let outputBox = document.getElementById('outputBox');
 let instructions = document.getElementById('instructions');
 let tryAgain = document.getElementById('tryAgain');
 tryAgain.addEventListener('click',reloadFunc);
-function reloadFunc(){
-    outputBox.style.opacity = 0;
+function reloadFunc(elem){
+    elem.target.style.outline = 'none';
     setTimeout(() => {
-        location.reload();
-    }, 500);
+        elem.target.style.outline = '1px solid black';
+    }, 100);
+    setTimeout(() => {
+        outputBox.style.opacity = 0;
+        setTimeout(() => {
+            location.reload();
+        }, 500);
+    }, 200);
 }
 
 let today = new Date();
@@ -22,6 +28,7 @@ if (today.getDate() < 10) {
 else {
     inputElem.max = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
 }
+inputElem.value = inputElem.max;
 
 submitBtn.addEventListener('click', submitClickFunc);
 function submitClickFunc(elem) {
